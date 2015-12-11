@@ -1,0 +1,1 @@
+<li id='logMenu'><a href='{siteurl}profile/view/'><b>{username}</b></a></li><li><a id='logout' href="{siteurl}authenticate/logout"><b>logout</b></a></li>

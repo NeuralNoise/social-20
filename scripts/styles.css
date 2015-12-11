@@ -1,0 +1,141 @@
+/* Eric Meyer's Reset */
+
+@import url("http://meyerweb.com/eric/tools/css/reset/reset.css");
+
+/*html, body{
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}*/
+
+#frame1 {
+    background-color: #FFFFFF;
+    /*border-bottom: solid thin #222;*/
+    width: 100%;
+    margin: 1em 0 0 1em;
+}
+
+#logo {
+    /*position: fixed;
+    top: 0;
+    left: 0;*/
+    max-width: 15%;
+    max-height: 100%;
+    float: left;
+    margin-right: 0.5em;
+}
+
+#mainFrame {
+    overflow: auto;
+    width: 80%;
+    height: 87.5%;
+    position: fixed;
+    top: 12.5%;
+    left: 20%;
+}
+
+/*#mainFrame::-webkit-scrollbar { display: none; } */
+
+#frame1 ul{
+    width: 80%;
+    float: right;
+    /*position: relative;
+    right: 0.5em;*/
+    display: flex;
+    flex-flow: row;
+    margin-top: 0;
+}
+
+#frame1 ul li {
+    float: left;
+    list-style: none;
+    /*position: relative;*/
+    margin: 0 0 0 0;
+    /*height: 10px;*/
+    /*width: 80px;*/
+    padding: 0;
+}
+
+/*border-bottom:30px solid #069; border-left:30px dashed transparent; */
+#frame1 ul li a {
+    /*float: left;*/
+    /*position: absolute;
+    left: 60px;
+    top: 0px;*/
+    font-family: arial, sans-serif;
+    font-size: 12px;
+    color: #fff;
+    padding: 0;
+}
+
+/*border-top:30px solid #069; border-right:30px dotted transparent; text-decoration:none;*/
+#frame1 ul li a b {
+    /*display: block;*/
+    background: #069;
+    background: -webkit-linear-gradient(#0af, #069);
+    background: -o-linear-gradient(#0af, #069);
+    background: -moz-linear-gradient(#0af, #069);
+    background: linear-gradient(#0af, #069);
+    /*position: absolute;
+    top: 0px;
+    left: 0px;*/
+    height: 4em;
+    line-height: 4em;
+    text-align: center;
+    /*width: 80px;*/
+    cursor: pointer;
+    font-weight: normal;
+    padding: 1em 2em;
+    border-radius: 2em;
+    border-left: solid 1px #fff;
+}
+
+/*width: 60px*/
+#frame1 ul li a b:hover {
+    background: #f80;
+    background: -webkit-linear-gradient(#c60, #f80);
+    background: -o-linear-gradient(#c60, #f80);
+    background: -moz-linear-gradient(#c60, #f80);
+    background: linear-gradient(#c60, #f80);
+}
+
+.rateCanvas1, .rateCanvas2, .rateCanvas3, .rateCanvas4, .rateCanvas5 {
+    padding: 0 0 0 0;
+}
+
+/*
+.hoMenu #frame1 li#hoMenu a {color:#000; border-top-color:#e70;}
+.logMenu #frame1 li#logMenu a {color:#000; border-top-color:#e70;}
+.soHome #frame1 li#soHome a {color:#000; border-top-color:#e70;}
+.regMenu #frame1 li#regMenu a {color:#000; border-top-color:#e70;}
+
+
+.hoMenu #frame1 li#hoMenu a b {background:#e70;}
+.logMenu #frame1 li#logMenu a b {background:#e70;}
+.soHome #frame1 li#soHome a b {background:#e70;}
+.regMenu #frame1 li#regMenu a b {background:#e70;}
+
+.hoMenu #frame1 li#hoMenu a:hover {background:#e70;}
+.logMenu #frame1 li#logMenu a:hover {background:#e70;}
+.soHome #frame1 li#soHome a:hover {background:#e70;}
+.regMenu #frame1 li#regMenu a:hover {background:#e70;}
+*/
+
+#searchResponse {
+    padding: 10px;
+    display: none;
+    width: 135px;
+    border: solid 1px #000000;
+}
+
+.srchResp {
+    list-style-type: none;
+    margin: 0;
+}
+
+.srchResp:hover {
+    background-color: #000;
+    color: #FFF;
+}
