@@ -118,13 +118,13 @@ function deleteStatus(siteurl)
 
 function addStatus(siteurl, id)
 {
-	$('form#newStatus').submit(function(event)
+	$('form#'+id).submit(function(event)
 	{
 		var formData = new FormData($(this)[0]);
 		console.log(siteurl); console.log(formData);
 		var ajax = $.ajax({url: siteurl, type: 'POST', data: formData, async: false, success: function(responseText, jqXHR, textStatus){addStuff(responseText, jqXHR, textStatus, id);}, cache: false, contentType: false, processData: false});
 		ajax.done();
-		event.preventDefault();
+		//event.preventDefault();
 	});
 	$("input[type='text']").val('');
 	canvasApp();
@@ -156,8 +156,12 @@ function status(responseText, jqXHR, textStatus, id)
 	{
 		if(responseText.search("Not") < 0) 
 		{ 
-			//location.reload(); 
+			//window.location.reload(); 
 			//$('#mainFrame').reload();
+            //console.log(responseText);
+            if(responseText.search("Status Deleted") >= 0){
+                $("li.stream#stream-id-"+responseText.substring(16)).remove(); //<Status Deleted> is 16 char long, so 15
+            }
 		}
 		else
 		{
@@ -172,7 +176,7 @@ function status(responseText, jqXHR, textStatus, id)
 
 function addStuff(responseText, jqXHR, textStatus, id)
 {
-	console.log(responseText);
+	//console.log(responseText);
 	if(responseText!="" && textStatus == "[object Object]")
 	{
 		if(responseText.search("stream404") >= 0){
@@ -187,6 +191,8 @@ function addStuff(responseText, jqXHR, textStatus, id)
 		{
 			if(id == 'newStatus')
 			{
+                $('form #status').val("");
+                $('.extra_field').hide();
 				$('ul.stream').prepend(responseText);
 			}
 		}

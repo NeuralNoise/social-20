@@ -284,7 +284,7 @@ class StreamController
             $this->registry->getObject('db')->deleteRecords('statuses', $del, '');
             $del2 = "`profile_post`=" . $id;
             $this->registry->getObject('db')->deleteRecords('comments', $del2, '');
-            $this->registry->ajaxReply(array('status' => 'Status Deleted', 'content' => ''));
+            $this->registry->ajaxReply(array('status' => 'Status Deleted', 'content' => $id));
         } else {
             $this->registry->ajaxReply(array('status' => 'Status Could Not Be Deleted', 'content' => ''));
         }
@@ -381,6 +381,7 @@ class StreamController
             $this->registry->getObject('template')->getPage()->addTag('offset', 20); //$offset +
             $this->registry->getObject('template')->parseOutput();
             $this->registry->ajaxReply(array('content' => $this->registry->getObject('template')->getPage()->getContentToPrint(), 'status' => 'Status Added'));
+            //$this->registry->ajaxReply(array('content' => '<script>$(document).ready(function(){window.location.reload();})</script>', 'status' => 'Status Added'));
             //Status Wierdness End
             // success message display
             //$this->registry->ajaxReply( array('status'=>'Status Added', 'content'=>'') );

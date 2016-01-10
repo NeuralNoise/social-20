@@ -152,4 +152,12 @@ class ImageManager
     }
 }
 
+class GIFManager{
+    private $filepath;
+    
+    public function __construct($filepath){
+        $this->filepath = $filepath;
+    }
+}
+
 ?>

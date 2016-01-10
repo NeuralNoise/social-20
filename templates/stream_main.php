@@ -1,4 +1,4 @@
-<h2>Add an update</h2>
+<h2>Something new?</h2>
 <form id='newStatus' action="javascript:addStatus('{siteurl}stream/addStatus/', 'newStatus')" method="post"
       enctype="multipart/form-data">
     <textarea id="status" name="status"></textarea>
@@ -37,7 +37,7 @@
 <h1>Updates in your network</h1>
 <ul class='stream'>
     <!-- START stream -->
-    <li class='stream'>{stream-{status_id}}</li>
+    <li class='stream' id='stream-id-{status_id}'>{stream-{status_id}}
 <span class='{status_id}' id='{rate_status_{status_id}}'>
 <canvas class='rateCanvas1' width='32' height='18' onmousemove="hoverRate('{rate_status_{status_id}}', 1)"
         onClick="rateSend('status', '{siteurl}stream/rate/{status_id}', {status_id}, 1)"
@@ -91,6 +91,7 @@
         <input type='submit' id='addComment' name='addComment' value='Comment'/>
     </form>
     <br/>
+    </li>
     <!-- END stream -->
     <a id='moreStream' href="javascript:moreStatus('{siteurl}stream/more/{offset}', 'moreStream')">View More</a>
 </ul>
