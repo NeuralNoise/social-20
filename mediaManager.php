@@ -1,4 +1,5 @@
 <?php
+require_once(__DIR__.'/lib/PHPImageWorkshop/ImageWorkshop.php');
 
 class ImageManager
 {
@@ -17,43 +18,29 @@ class ImageManager
     {
         $info = getimagesize($filepath);
         $this->type = $info[2];
-        if ($this->type == IMAGETYPE_JPEG) {
-            $this->image = imagecreatefromjpeg($filepath);
-        } elseif ($this->type == IMAGETYPE_GIF) {
-            $this->image = imagecreatefromgif($filepath);
-        } elseif ($this->type == IMAGETYPE_PNG) {
-            $this->image = imagecreatefrompng($filepath);
-        }
+        //Find out name;
+        $this->image = ImageWorkshop::initFromPath($filepath);
     }
 
     public function getWidth()
     {
-        return imagesx($this->image);
+        return $this->image->getWidth();
     }
 
     public function getHeight()
     {
-        return imagesy($this->image);
+        return $this->image->getHeight();
     }
 
     public function resize($x, $y)
     {
-        $new = imagecreatetruecolor($x, $y);
-        imagecopyresampled($new, $this->image, 0, 0, 0, 0, $x, $y, $this->getWidth(), $this->getHeight());
-        $this->image = $new;
+        $this->image->resizeInPixel($x, $y, false);
     }
 
     public function resizeScale($scale)
     {
-        if ($this->getWidth() > $this->getHeight()) {
-            if ($this->getWidth() > $scale) {
-                $this->resizeScaleHeight($scale);
-            }
-        } elseif ($this->getWidth() < $this->getHeight()) {
-            if ($this->getHeight() > $scale) {
-                $this->resizeScaleWidth($scale);
-            }
-        }
+        //scale = 1 means same size. true for conserving proportions
+        $this->resizeByLargestSideInPercent($scale*100, true);
     }
 
     public function resizeScaleWidth($height)
@@ -91,15 +78,16 @@ class ImageManager
                 break;
         }
         header('Content-type:' . $type);
+        $image = $this->image->getResult();
         switch ($this->type) {
             case IMAGETYPE_JPEG:
-                imagejpeg($this->image);
+                imagejpeg($image);
                 break;
             case IMAGETYPE_GIF:
-                imagegif($this->image); //$this->gif
+                imagegif($image); //$this->gif
                 break;
             case IMAGETYPE_PNG:
-                imagepng($this->image); //$this->png
+                imagepng($image); //$this->png
                 break;
         }
     }
@@ -141,23 +129,32 @@ class ImageManager
 
     public function save($location, $type = '', $quality = 100)
     {
-        $type = ($type != '') ? $type : $this->type;
-        if ($type == IMAGETYPE_JPEG) {
-            imagejpeg($this->image, $location, $quality);
-        } elseif ($type == IMAGETYPE_GIF) {
-            imagegif($this->image, $location);
-        } elseif ($type == IMAGETYPE_PNG) {
-            imagepng($this->image, $location);
-        }
+        $this->image->save($location, $this->name, true, null, $quality);
     }
 }
 
 class GIFManager{
     private $filepath;
     
-    public function __construct($filepath){
+    public function __construct($filepath, $image){
         $this->filepath = $filepath;
+        require_once(__DIR__.'/lib/GifCreator.php');
+        require_once(__DIR__.'/lib/GifFrameExtractor.php');
+        if(GifFrameExtractor::isAnimatedGif($this->filepath)){
+            $gfe = new GifFrameExtractor();
+            $frames = $gfe->extract($this->filepath);
+            $newFrames = [];
+            foreach($frames as $f){
+                require_once(__DIR__.'/lib/PHPImageWorkshop/ImageWorkshop.php');
+                $layer = ImageWorkshop::initFromResourceVar($f['image']);
+                //We use resizeScaleWidth in imagestatus
+                //$layer->resizeInPixel($thumbWidth, $thumbHeight, $conserveProportion, $positionX, $positionY, $position);
+                //$layer->resizeByNarrowSideInPixel($newNarrowSideWidth, $conserveProportion);
+            }
+        }
     }
+    
+    public function resize(){}
 }
 
 ?>
