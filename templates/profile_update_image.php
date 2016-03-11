@@ -1,5 +1,5 @@
-<p><strong>{poster_name}</strong>: posted an image "{update}"</p>
-<img src="{siteurl}uploads/status/images/{poster_user}/{image}" alt="Image"/>
+<div id="content-child"><strong>{poster_name}</strong>: posted an image "{update}"
+<br/><img src="{siteurl}uploads/status/images/{image}" alt="Image"/>
 <p>Comments:</p>
 <!-- START comments-{ID} -->
 <form method='post' action='{siteurl}profile/deletecomment/{ID}'>
@@ -13,4 +13,4 @@
     <input type='text' id='usr_comment' name='usr_comment'/>
     <input type='hidden' id='returnto' name='returnto' value='{referrer}'/>
     <input type='submit' id='addComment' name='addComment' value='Comment'/>
-</form>
+</form></div>

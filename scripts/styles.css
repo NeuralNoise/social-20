@@ -10,10 +10,13 @@
     overflow: hidden;
 }*/
 
+body{overflow-x: hidden;}
+
 #frame1 {
     background-color: #FFFFFF;
     /*border-bottom: solid thin #222;*/
     width: 100%;
+    max-height: 20%;
     margin: 1em 0 0 1em;
 }
 
@@ -138,4 +141,28 @@
 .srchResp:hover {
     background-color: #000;
     color: #FFF;
+}
+
+li.stream, #content-child {
+    border: solid thin #AAA;
+	box-shadow: 5px 5px 8px #AAA;
+    margin: 2px;
+    padding: 4px 10px;
+}
+
+li.stream p, li.stream u {
+    padding: 6px 0;
+}
+
+#profile_view *{
+    margin: 1.25%;
+}
+
+#profile_view th{
+    float: left;
+}
+
+#profile_view td{
+    position: relative;
+    top: -3.25px;
 }

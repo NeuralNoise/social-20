@@ -509,6 +509,9 @@ PRIMARY KEY (`ID`)
 --
 -- Dumping data for table `users`
 --
-
+INSERT INTO `users` (`ID`, `username`, `password_hash`, `password_salt`, `email`, `active`, `admin`, `banned`, `reset_key`, `reset_expires`, `deleted`) VALUES
+(0, 'admin', '3bad6af0fa4b8b330d162e19938ee9814aw2r', '4aw2r', 'mze@pcz.com', 1, 1, 0, '', '0000-00-00 00:00:00', 0);
 INSERT INTO `users` (`ID`, `username`, `password_hash`, `password_salt`, `email`, `active`, `admin`, `banned`, `reset_key`, `reset_expires`, `deleted`) VALUES
 (1, 'zero', '3bad6af0fa4b8b330d162e19938ee9814aw2r', '4aw2r', 'maxzeroedge@gmail.com', 1, 0, 0, '', '0000-00-00 00:00:00', 0);
+INSERT INTO `users` (`ID`, `username`, `password_hash`, `password_salt`, `email`, `active`, `admin`, `banned`, `reset_key`, `reset_expires`, `deleted`) VALUES
+(2, 'palash', '3bad6af0fa4b8b330d162e19938ee9814aw2r', '4aw2r', 'abc@def.com', 1, 0, 0, '', '0000-00-00 00:00:00', 0);

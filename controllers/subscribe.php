@@ -37,7 +37,7 @@ class Subscribe //Relationship model
             if ($type != 0) {
                 $sql = "SELECT * FROM relationships WHERE ID=" . $id;
                 $this->registry->getObject('db')->executeQuery($sql);
-                if ($this-- > registry->getObject('db')->numRows() == 1)
+                if ($this-> registry->getObject('db')->numRows() == 1)
 					{
                         $data = $this->registry->getObject('db')->getRows();
                         if ($data['mutual'] == 0) {

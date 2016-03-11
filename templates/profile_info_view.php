@@ -1,7 +1,7 @@
 <span id='frame2'><!-- style="position: fixed; top: 80px; left: 20px; text-align:center; padding-top: 5px;" -->
-						<br/><br/><img src="{baseurl}social2/uploads/profile/{p_photo}"/>
+						<br/><br/><img src="{siteurl}uploads/profile/{p_photo}"/>
 					</span>
-<div style="padding: 5px;">
+<div id="profile_view" style="padding: 5px;">
     <h2>Friends</h2>
     <ul>
         <!-- START profile_friends_sample -->
@@ -14,7 +14,6 @@
     <ul>
         <li><a href="{siteurl}profile/statuses/{p_user_id}">Status updates</a></li>
     </ul>
-</div>
 {subscribe}
 {edit}
 <h2>About {p_name}:</h2>
@@ -35,3 +34,4 @@
     </tr>
 
 </table>
+</div>

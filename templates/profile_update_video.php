@@ -1,5 +1,5 @@
-<p><strong>{poster_name}</strong>: posted an video "{update}"</p>
-<iframe width="400" height="250" src="https://www.youtube.com/embed/{video_id}" frameborder="0" allowfullscreen></iframe>
+<div id="content-child"><strong>{poster_name}</strong>: posted an video "{update}"
+<br/><iframe width="400" height="250" src="https://www.youtube.com/embed/{video_id}" frameborder="0" allowfullscreen></iframe>
 <!--<object width="400" height="250">
     <param name="movie" value="http://www.youtube.com/v/{video_id}&amp;hl=en_GB&amp;fs=1?rel=0&amp;border=1"></param>
     <param name="allowFullScreen" value="true"></param>
@@ -21,4 +21,4 @@
     <input type='text' id='usr_comment' name='usr_comment'/>
     <input type='hidden' id='returnto' name='returnto' value='{referrer}'/>
     <input type='submit' id='addComment' name='addComment' value='Comment'/>
-</form>
+</form></div>

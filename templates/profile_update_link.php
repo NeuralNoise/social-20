@@ -1,4 +1,4 @@
-<p><strong>{poster_name}</strong>: posted an link "{update}"</p>
+<div id="content-child"><strong>{poster_name}</strong>: posted an link "{update}"
 <a href="{URL}">{description}</a>
 <p>Comments:</p>
 <!-- START comments-{ID} -->
@@ -14,4 +14,4 @@
     <input type='text' id='usr_comment' name='usr_comment'/>
     <input type='hidden' id='returnto' name='returnto' value='{referrer}'/>
     <input type='submit' id='addComment' name='addComment' value='Comment'/>
-</form>
+</form></div>

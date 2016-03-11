@@ -147,7 +147,7 @@ class RelationsGet //Get Relationship Model
     //Get Relationship status by user
     public function getByUser($user, $obr = false, $limit = 0)
     {
-        $sql = "SELECT t.plural_name, p.name as users_name, u.ID FROM users u, profile p, relationships r, relationship_types t WHERE t.ID=r.type AND r.accepted=1 AND (r.usera=" . $user . " OR r.userb=" . $user . ") AND IF( r.usera=" . $user . ",u.ID=r.userb,u.ID=r.usera) AND p.user_id=u.ID";
+        $sql = "SELECT t.plural_name, p.name as users_name, u.ID FROM users u, profile p, relationships r, relationship_types t WHERE t.ID=r.type AND r.accepted=1 AND (r.usera=" . $user . " OR r.userb=" . $user . ") AND (IF(r.usera=" . $user . ",u.ID=r.userb,u.ID=r.usera)) AND p.user_id=u.ID";
         if ($obr == true) //Ordering randomly
         {
             $sql .= " ORDER BY RAND() ";
@@ -156,6 +156,7 @@ class RelationsGet //Get Relationship Model
         {
             $sql .= " LIMIT " . $limit;
         }
+        //echo $sql;
         $cache = $this->registry->getObject('db')->cacheQuery($sql);
         return $cache;
     }

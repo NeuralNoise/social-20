@@ -265,6 +265,7 @@ class Profile //The profile controller
                 } elseif (isset($_SESSION['sn_auth_session_uid'])) {
                     $this->staticContentDelegator(intval($_SESSION['sn_auth_session_uid']), 'view');
                     $this->registry->getObject('template')->getPage()->addTag('edit', '<a href = "' . $this->registry->getSetting('siteurl') . 'profile/edit">Edit Profile</a>');
+                    $this->registry->getObject('template')->getPage()->addTag('subscribe', '');
                 } else {
                     $this->registry->errorPage('Error', 'You are not connected');
                 }
@@ -355,7 +356,7 @@ class Profile //The profile controller
         if (!in_array($pro, $sub)) {
             $this->registry->getObject('template')->getPage()->addTag('subscribe', "<a href = '{siteurl}relationships/subscribe/" . $pro . "'>Subscribe</a>");
         } else {
-            $this->registry->getObject('template')->getPage()->addTag('subscribe', '');
+            $this->registry->getObject('template')->getPage()->addTag('subscribe', 'Subscribed');
         }
     }
 }

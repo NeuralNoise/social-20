@@ -7,7 +7,7 @@ class RelateController //Relationships Controller
     {
         $this->registry = $registry;
         $urlBits = $this->registry->getObject('url')->getURLBits();
-        //$last = count($urlBits) - 1;
+        $last = count($urlBits) - 1;
         if ($directCall == false) {
         } elseif ($urlBits[$last - 1] != 'create' || $urlBits[$last - 1] != 'approve' || $urlBits[$last - 1] != 'reject' || $urlBits[$last - 1] != 'pending') {
             $this->myRelationships();
