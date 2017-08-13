@@ -342,7 +342,7 @@ INSERT INTO `settings` (`ID`, `key`, `value`) VALUES
 (3, 'siteurl', 'http://localhost/social/'),
 (4, 'captcha.enabled', '0'),
 (5, 'upload_path', 'D:/Projects/xampp/htdocs/social/uploads/'),
-(6, 'baseurl', 'http://localhost');
+(6, 'baseurl', 'http://localhost/social/');
 
 -- --------------------------------------------------------
 
